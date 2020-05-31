@@ -1,0 +1,10 @@
+import './css/style.css';
+import './js/firstLoadSite';
+import './js/constants';
+import './js/map';
+import './js/renderTime';
+import './js/renderInfo';
+import './js/changeBackground';
+import './js/langChanges';
+import './js/changeDegrees';
+import './js/search';

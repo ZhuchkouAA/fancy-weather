@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fancy-weather</title>
+	<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+</head>
+<body style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgb(0, 0, 0)),
+url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
+	<div class="header">
+		<div class="switches">
+			<button class="background-switcher btn">
+				<i class="fa fa-refresh" aria-hidden="true"></i>
+			</button>
+			<button class="en-lang btn">EN</button>
+			<button class="ru-lang btn">RU</button>
+			<button class="be-lang btn">BE</button>
+			<button class="fahrenheit btn">°F</button>
+			<button class="celsium btn">°C</button>
+		</div>
+		<div class="search">
+			<form class="form">
+				<input class="input-search" type="text">
+				<button type="submit" class="btn-search btn">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+			</form>
+		</div>
+	</div>
+	<div class="main">
+		<div class="info">
+			<div class="town-container"><h2 class="town"></h2></div>
+			<div class="country-container"><h4 class="country"></h4></div>
+			<div class="date-container"><h3 class="date"></h3></div>
+			<div class="time-container"><h3 class="time"></h3></div>
+			<div class="weatcher-discription">
+				<div><h2 class="discription-text"></h2></div>
+				<div><img class="discription-icon" src="./assets/animated/01d.svg" alt="weather-icon"></div>
+			</div>
+			<div class="weatcher-parameters">
+				<div class="degree-container">
+					<span class="degree"></span><span class="degree-sign sign">°C</span>
+				</div>
+				<div class="other">
+					<div class="apparent-temperature-container">
+						<span data-i18n="apparentTemp"></span>
+						<span class="apparent-temperature"></span>
+						<span class="sign">°C</span>
+					</div>
+					<div class="wind-container">
+						<span data-i18n="wind"></span>
+						<span class="wind"></span>
+						<span data-i18n="speed">м/с</span>
+					</div>
+					<div class="humidity-container">
+						<span data-i18n="humidity"></span>
+						<span class="humidity"></span>
+					</div>
+				</div>
+			</div>
+			<div class="future-container">
+				<div class="future">
+					<div class="date-future"></div>
+					<div><span class="weather-text-future"></span>
+						<img class="icon-future" src="./assets/animated/01d.svg" alt='weather-icon'></div>
+					<div>
+						<span class="degree-future"></span>
+						<span class="degree-sign-future sign">°C</span>
+					</div>
+				</div>
+				<div class="future">
+					<div class="date-future"></div>
+					<div><span class="weather-text-future"></span>
+						<img class="icon-future" src="./assets/animated/01d.svg" alt='weather-icon'></div>
+					<div>
+						<span class="degree-future"></span>
+						<span class="degree-sign-future sign">°C</span>
+					</div>
+				</div>
+				<div class="future">
+					<div class="date-future"></div>
+					<div><span class="weather-text-future"></span>
+						<img class="icon-future" src="./assets/animated/01d.svg" alt='weather-icon'></div>
+					<div>
+						<span class="degree-future"></span>
+						<span class="degree-sign-future sign">°C</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="map">
+			<div id="map"></div>
+			<div class="latitude-container"><span data-i18n="latitude"></span><span class="latitude"></span></div>
+			<div class="longitude-container"><span data-i18n="longitude"></span><span class="longitude"></span></div>
+		</div>
+	</div>
+<script src="app.bundle.js"></script></body>
+</html>

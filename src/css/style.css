@@ -1,0 +1,232 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	padding: 0 50px;
+	font-family: 'Jura', sans-serif;
+	color: white;
+	font-size: 15px;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 2.1em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+.degree-container {
+	font-size: 7.2em;
+	margin-right: 20px;
+}
+
+.degree-sign {
+	font-size: 0.4em;
+}
+
+.header {
+	display: flex;
+	margin: 20px 0 0 0;
+	justify-content: space-between;
+}
+
+.main {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* border: 1px solid; */
+	flex-grow: 1;
+}
+
+.map {
+	min-width: 400px;
+	/* border: 1px solid; */
+	box-sizing: border-box;
+	padding: 3.5em;
+}
+
+.latitude-container, .longitude-container {
+	text-align: end;
+}
+
+#map {
+	width: 300px;
+	height: 300px;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 89%, 80% 89%, 75% 100%, 70% 89%, 0 88%);
+	border-radius: 10px;
+}
+
+.weatcher-discription {
+	display: flex;
+	align-items: center;
+}
+
+.discription-icon {
+	width: 200px;
+}
+
+.discription-text {
+	font-size: 1.5em;
+}
+
+.weatcher-parameters {
+	display: flex;
+	align-items: center;
+}
+
+.other span{
+	font-size: 1.5em;
+}
+
+.future-container {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.future {
+	border: 1px solid white;
+	min-width: 28%;
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+}
+
+.future:nth-child(2) {
+	margin: 0 20px;
+}
+
+.future img {
+	width: 100px;
+}
+
+.date-future {
+	font-size: 1.32em;
+}
+
+.degree-future {
+	font-size: 3em;
+}
+
+.degree-sign-future {
+	font-size: 2em;
+}
+
+.btn, .input-search {
+	background-color: transparent;
+	padding: 5px 10px;
+	border: 2px solid rgb(200,200,200);
+	outline: none;
+	color: white;
+	border-radius: 5px;
+	font-family: 'Jura', sans-serif;
+	font-size: 1.2em;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: rgba(186,210,255,.6);
+    transition: .2s linear;
+}
+
+.background-switcher, .be-lang {
+	margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+  .main {
+		flex-direction: column;
+	}
+
+	.map {
+		display: flex;
+		padding: 0;
+		margin-top: 15px;
+	}
+
+	.mapboxgl-map {
+		align-self: end;
+		margin-top: 15px;
+	}
+
+	#map {
+		width: 500px;
+		clip-path: polygon(0% 0%, 86% 0, 100% 0, 89% 10%, 89% 100%, 0 100%, 0% 75%);
+	}
+}
+
+@media (max-width: 720px) {
+	.header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.search {
+		margin-top: 10px;
+	}
+
+	body {
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 520px) {
+	.future-container {
+		flex-direction: column;
+		margin-top: 10px;
+	}
+
+	.icon-future {
+		width: 70px;
+	}
+
+	body {
+		padding: 0 20px;
+	}
+
+	.future {
+		padding: 0;
+	}
+
+	.future:nth-child(2) {
+    margin: 10px 0;
+	}
+
+	.map {
+		flex-direction: column;
+		min-width: 200px;
+	}
+
+	#map {
+		width: 100%;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 89%, 49% 89%, 46% 100%, 42% 89%, 0 89%);
+	}
+
+	.longitude-container, .latitude-container {
+		text-align: center;
+	}
+}
+
+@media (max-width: 420px) {
+	.btn, .input-search {
+		padding: 5px;
+	}
+}
