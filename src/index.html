@@ -9,8 +9,7 @@
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 </head>
-<body style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgb(0, 0, 0)),
-url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
+<body>
 	<div class="header">
 		<div class="switches">
 			<button class="background-switcher btn">
@@ -20,15 +19,22 @@ url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?ixlib=rb-1.2.1&
 			<button class="ru-lang btn">RU</button>
 			<button class="be-lang btn">BE</button>
 			<button class="fahrenheit btn">°F</button>
-			<button class="celsium btn">°C</button>
+			<button class="celsium btn btn-active">°C</button>
+			<button class="voice btn">
+				<i class="fa fa-volume-up" aria-hidden="true"></i>
+			</button>
 		</div>
 		<div class="search">
 			<form class="form">
+				<button type="button" class="btn-microphone btn">
+					<i class="fa fa-microphone" aria-hidden="true"></i>
+				</button>
 				<input class="input-search" type="text">
 				<button type="submit" class="btn-search btn">
 					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
 			</form>
+			<div class="errors"></div>
 		</div>
 	</div>
 	<div class="main">
@@ -98,5 +104,9 @@ url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?ixlib=rb-1.2.1&
 			<div class="longitude-container"><span data-i18n="longitude"></span><span class="longitude"></span></div>
 		</div>
 	</div>
+	<div class="background-container">
+		<img class="background" src="https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="wallpaper">
+	</div>
+	<div class="overlay"></div>
 </body>
 </html>

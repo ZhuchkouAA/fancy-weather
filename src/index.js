@@ -8,3 +8,6 @@ import './js/changeBackground';
 import './js/langChanges';
 import './js/changeDegrees';
 import './js/search';
+import './js/voice';
+import './js/speechRecognition';
+import './js/mapNewCoordinates';

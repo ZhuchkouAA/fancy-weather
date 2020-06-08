@@ -222,7 +222,6 @@ export const countries = {
   AW: 'Aruba',
   AX: 'Åland Islands',
   AZ: 'Azerbaijan',
-  Alpha2: 'На английском',
   BA: 'Bosnia and Herzegovina',
   BB: 'Barbados',
   BD: 'Bangladesh',
@@ -458,3 +457,5 @@ export const countries = {
   ZM: 'Zambia',
   ZW: 'Zimbabwe',
 };
+
+export const voiceRequests = [];

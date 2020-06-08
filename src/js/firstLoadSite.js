@@ -6,4 +6,7 @@ if (localStorage.getItem('myObj') === null) {
 }
 window.myObj = {
   apiKey: 'trnsl.1.1.20200508T115458Z.f858c926c4aeb756.c6744a1ebf669f59c14f93c53ae668fc4fa6b239',
+  isFirstLoad: true,
+  volume: 0.5,
+  isWallpaperLoad: true,
 };

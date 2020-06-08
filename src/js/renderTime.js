@@ -3,7 +3,9 @@ import { dateConstants } from './constants';
 function renderDate() {
   const { lang } = JSON.parse(localStorage.getItem('myObj'));
   // 0-en 1-ru 2-be
-  const date = new Date();
+  const userDate = new Date();
+  const timeZoneOffset = userDate.getTimezoneOffset() * 60 * 1000;
+  const date = new Date(userDate.getTime() + timeZoneOffset + (window.myObj.timezone * 1000));
   const day = date.getDay();
   const month = date.getMonth();
   document.querySelector('.date').innerHTML = `${dateConstants.days[day][lang]} ${
@@ -25,4 +27,13 @@ function renderDate() {
   document.querySelector('.time').innerHTML = `${hours}:${minutes}:${seconds}`;
 }
 
-setInterval(renderDate, 1000);
+function readyCheckTimeZone() {
+  if (window.myObj.timezone !== undefined) {
+    setInterval(renderDate, 1000);
+  } else {
+    setTimeout(readyCheckTimeZone, 500);
+  }
+}
+readyCheckTimeZone();
+
+export default renderDate;

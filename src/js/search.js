@@ -1,7 +1,9 @@
 import renderAll from './renderInfo';
 
 function search(event) {
-  event.preventDefault();
+  if (event !== undefined) event.preventDefault();
+  const errorDiv = document.querySelector('.errors');
+  errorDiv.innerHTML = '';
   let geoData;
   let city = document.querySelector('.input-search').value;
   const url = `https://api.opencagedata.com/geocode/v1/json?q=${
@@ -16,6 +18,7 @@ function search(event) {
     return translation.json();
   })
     .then((res) => {
+      // eslint-disable-next-line prefer-destructuring
       city = res.text[0];
       return geoData;
     })
@@ -23,13 +26,18 @@ function search(event) {
       const latitude = geodata.results[0].geometry.lat;
       const longitude = geodata.results[0].geometry.lng;
       const coordinates = [longitude.toString(), latitude.toString()];
-      const country = geodata.results[0].components['ISO_3166-1_alpha-2'];
-      console.log(coordinates, city, country);
-      renderAll(coordinates, city, country);
+      renderAll(coordinates, city);
       document.querySelector('.input-search').value = '';
     })
     .catch((err) => {
+      // eslint-disable-next-line no-console
       console.dir(err);
+      const myObj = JSON.parse(localStorage.getItem('myObj'));
+      if (myObj.lang === 0) errorDiv.innerHTML = 'request error';
+      if (myObj.lang === 1) errorDiv.innerHTML = 'ошибка запроса';
+      if (myObj.lang === 2) errorDiv.innerHTML = 'памылка запыту';
     });
 }
 document.querySelector('.form').addEventListener('submit', search);
+
+export default search;

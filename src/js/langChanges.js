@@ -1,20 +1,24 @@
 import { weatherConstants, i18nConstants } from './constants';
+import renderDate from './renderTime';
 
 export function changeLocationLangName() {
   let { lang } = JSON.parse(localStorage.getItem('myObj'));
   if (lang === 0) lang = 'en';
   if (lang === 1) lang = 'ru';
   if (lang === 2) lang = 'be';
-  const town = document.querySelector('.town');
-  const country = document.querySelector('.country');
-  const text = `${town.innerText}, ${country.innerText}`;
-  fetch(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${window.myObj.apiKey}&text=${text}&lang=${lang}`)
+  const { city } = window.myObj.newWeather;
+  const { country } = window.myObj.newWeather;
+  const text = `${city}, ${country}`;
+  return fetch(`https://translate.yandex.net/api/v1.5/tr.json/translate?key=${window.myObj.apiKey}&text=${text}&lang=${lang}`)
     .then((response) => response.json())
     .then((data) => {
       const translation = data.text[0];
       const separator = translation.indexOf(',');
-      town.innerHTML = translation.slice(0, separator);
-      country.innerHTML = translation.slice(separator + 1);
+      const cityTranslation = translation.slice(0, separator);
+      const countryTranslation = translation.slice(separator + 1);
+      window.myObj.newWeather.city = cityTranslation;
+      window.myObj.newWeather.country = countryTranslation;
+      return [cityTranslation, countryTranslation];
     });
 }
 
@@ -51,9 +55,15 @@ function changeLang(e) {
     localStorage.setItem('myObj', JSON.stringify(myObj));
   }
   // 0-en, 1-ru, 2-be //
-  renderI18nElements();
-  renderWeatherElements();
-  changeLocationLangName();
+
+  changeLocationLangName()
+    .then((res) => {
+      document.querySelector('.town').innerHTML = res[0];
+      document.querySelector('.country').innerHTML = res[1];
+      renderI18nElements();
+      renderWeatherElements();
+      renderDate();
+    });
 }
 
 document.querySelector('.ru-lang').addEventListener('click', changeLang);
